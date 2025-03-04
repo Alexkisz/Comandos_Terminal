@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\title{Comandos Terminal}
+\author{Alexis Palomares Olegario}
+\date{04 de Marzo de 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Permisos y sus valores numéricos}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Permiso} & \textbf{Número} & \textbf{Significado} \\
+\hline
+r (lectura) & 4 & Leer el contenido. \\
+w (escritura) & 2 & Modificar el contenido. \\
+x (ejecución) & 1 & Ejecutar el archivo. \\
+- (sin permiso) & 0 & Ningún permiso. \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Navegación de directorios}
+\begin{itemize}
+    \item \texttt{pwd}: muestra la ruta completa del directorio actual.
+    \item \texttt{cd}: cambia de directorio (change directory).
+    \item \texttt{cd ..}: retrocede un directorio.
+    \item \texttt{cd <Nombre carpeta>}: avanza a la carpeta especificada.
+    \item \texttt{cd <Nombre carpeta/Nombre carpeta>}: avanza dos carpetas.
+    \item \texttt{cd <../..Nombre carpeta>}: retrocede dos veces y luego avanza a la carpeta.
+    \item \texttt{start . / explorer .}: abre la carpeta actual (Windows).
+\end{itemize}
+
+\section{Listar archivos y directorios}
+\begin{itemize}
+    \item \texttt{ls}: lista los archivos y directorios en el directorio actual.
+    \item \texttt{ls -l}: muestra datos detallados de los archivos.
+    \item \texttt{ls -a}: muestra archivos ocultos y no ocultos.
+    \item \texttt{ls -la}: muestra toda la información, incluyendo archivos ocultos.
+    \item \texttt{ls -l | less}: permite ver los resultados con paginación.
+    \item \texttt{ls > salida.txt}: guarda el contenido de \texttt{ls} en un archivo.
+    \item \texttt{ls -lh}: muestra el listado con tamaños legibles.
+\end{itemize}
+
+\section{Crear y eliminar archivos y carpetas}
+\begin{itemize}
+    \item \texttt{mkdir <Nombre carpeta>}: crea una nueva carpeta.
+    \item \texttt{rmdir <Nombre carpeta>}: elimina una carpeta vacía.
+    \item \texttt{rm -r <Nombre carpeta>}: elimina una carpeta y su contenido.
+    \item \texttt{rm -rf <Nombre carpeta>}: elimina una carpeta sin confirmación.
+    \item \texttt{touch <Nombre archivo>}: crea un archivo vacío.
+    \item \texttt{rm <Nombre archivo>}: elimina un archivo.
+\end{itemize}
+
+\section{Ver y gestionar contenido de archivos}
+\begin{itemize}
+    \item \texttt{cat <Nombre archivo.txt>}: imprime el contenido del archivo.
+    \item \texttt{cat <Nombre archivo.txt> | grep "error"}: busca la palabra "error" dentro del archivo.
+    \item \texttt{cat desordenado\_duplicados.txt | sort | uniq}: ordena y elimina duplicados.
+    \item \texttt{sort < desordenado.txt}: imprime el contenido ordenado.
+\end{itemize}
+
+\section{Mover y copiar archivos y carpetas}
+\begin{itemize}
+    \item \texttt{mv <Origen> <Destino>}: mueve un archivo o carpeta.
+    \item \texttt{cp <Origen> <Destino>}: copia un archivo o carpeta.
+\end{itemize}
+
+\section{Búsqueda y filtrado}
+\begin{itemize}
+    \item \texttt{find <ruta> -name "<nombre>"}: busca archivos por nombre.
+    \item \texttt{grep "<texto>" <archivo>}: busca texto dentro de un archivo.
+    \item \texttt{grep -r "<texto>" <carpeta>}: busca texto en todos los archivos de una carpeta.
+    \item \texttt{which <comando>}: muestra la ruta del ejecutable.
+\end{itemize}
+
+\section{Información del sistema}
+\begin{itemize}
+    \item \texttt{uname -a}: muestra información completa del sistema.
+    \item \texttt{df -h}: muestra el espacio en disco libre y usado.
+    \item \texttt{du -sh <carpeta>}: muestra el tamaño de una carpeta.
+    \item \texttt{top / htop}: muestra los procesos activos y uso de recursos.
+    \item \texttt{free -h}: muestra el uso de memoria RAM.
+\end{itemize}
+
+\section{Compresión y descompresión}
+\begin{itemize}
+    \item \texttt{tar -cvf <archivo.tar> <carpeta>}: crea un .tar.
+    \item \texttt{tar -xvf <archivo.tar>}: extrae un .tar.
+    \item \texttt{tar -czvf <archivo.tar.gz> <carpeta>}: crea un .tar.gz.
+    \item \texttt{tar -xzvf <archivo.tar.gz>}: descomprime un .tar.gz.
+    \item \texttt{zip <archivo.zip> <archivo\_o\_carpeta>}: crea un .zip.
+    \item \texttt{unzip <archivo.zip>}: descomprime un .zip.
+\end{itemize}
+
+\section{Redes y conectividad}
+\begin{itemize}
+    \item \texttt{ping <dominio>}: verifica la conectividad.
+    \item \texttt{ifconfig / ip a}: muestra las interfaces de red.
+    \item \texttt{netstat -tuln}: muestra los puertos abiertos.
+    \item \texttt{curl <URL>}: realiza solicitudes HTTP.
+\end{itemize}
+
+\section{Git y ayuda de comandos}
+\begin{itemize}
+    \item \texttt{git init}: inicia un proyecto Git.
+    \item \texttt{<comando> --help}: muestra el manual breve del comando.
+\end{itemize}
+
+\section{Permisos y usuarios}
+\begin{itemize}
+    \item \texttt{chmod <permisos> <archivo>}: cambia los permisos.
+    \item Ejemplo: \texttt{chmod 755 archivo} (\texttt{rwxr-xr-x}).
+    \item \texttt{chown <usuario>:<grupo> <archivo>}: cambia el propietario y grupo.
+    \item \texttt{sudo su}: cambia a usuario root.
+\end{itemize}
+
+\section{Tipos de archivos (primer carácter en \texttt{ls -l})}
+\begin{itemize}
+    \item \texttt{-}: archivo normal.
+    \item \texttt{d}: directorio.
+    \item \texttt{l}: enlace simbólico.
+\end{itemize}
+
+\section{Administración y limpieza}
+\begin{itemize}
+    \item \texttt{clear}: limpia la consola.
+    \item \texttt{history}: muestra el historial de comandos.
+    \item \texttt{sudo apt-get clean}: elimina archivos temporales.
+    \item \texttt{sudo apt-get autoremove}: elimina paquetes innecesarios.
+\end{itemize}
+
+\section{Combinaciones útiles}
+\begin{itemize}
+    \item \texttt{du -h --max-depth=1}: muestra el tamaño de carpetas.
+    \item \texttt{ps aux | grep <proceso>}: busca procesos activos.
+    \item \texttt{!<número>}: ejecuta un comando del historial por número.
+\end{itemize}
+
+\section{Alias para agilizar comandos}
+\begin{itemize}
+    \item \texttt{alias ll='ls -la'}: crea un alias para listar todo con detalles.
+    \item \texttt{alias cls='clear'}: crea un alias para limpiar la consola.
+    \item Para hacer los alias permanentes, agrégalos a \texttt{\textasciitilde/.bashrc} y ejecuta \texttt{source \textasciitilde/.bashrc}.
+\end{itemize}
+
+\section{Extras útiles}
+\begin{itemize}
+    \item \texttt{whoami}: muestra el nombre del usuario actual.
+    \item \texttt{echo \$SHELL}: muestra la shell en uso.
+    \item \texttt{date}: muestra la fecha y hora actuales.
+    \item \texttt{cal}: muestra el calendario del mes actual.
+\end{itemize}
+
+\end{document}
