@@ -10,19 +10,6 @@
 
 \maketitle
 
-\section{Permisos y sus valores numéricos}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Permiso} & \textbf{Número} & \textbf{Significado} \\
-\hline
-r (lectura) & 4 & Leer el contenido. \\
-w (escritura) & 2 & Modificar el contenido. \\
-x (ejecución) & 1 & Ejecutar el archivo. \\
-- (sin permiso) & 0 & Ningún permiso. \\
-\hline
-\end{tabular}
-\end{center}
 
 \section{Navegación de directorios}
 \begin{itemize}
@@ -56,6 +43,12 @@ x (ejecución) & 1 & Ejecutar el archivo. \\
     \item \texttt{rm <Nombre archivo>}: elimina un archivo.
 \end{itemize}
 
+\section{Mover y copiar archivos y carpetas}
+\begin{itemize}
+    \item \texttt{mv <Origen> <Destino>}: mueve un archivo o carpeta.
+    \item \texttt{cp <Origen> <Destino>}: copia un archivo o carpeta.
+\end{itemize}
+
 \section{Ver y gestionar contenido de archivos}
 \begin{itemize}
     \item \texttt{cat <Nombre archivo.txt>}: imprime el contenido del archivo.
@@ -64,10 +57,21 @@ x (ejecución) & 1 & Ejecutar el archivo. \\
     \item \texttt{sort < desordenado.txt}: imprime el contenido ordenado.
 \end{itemize}
 
-\section{Mover y copiar archivos y carpetas}
+
+\section{Administración y limpieza}
 \begin{itemize}
-    \item \texttt{mv <Origen> <Destino>}: mueve un archivo o carpeta.
-    \item \texttt{cp <Origen> <Destino>}: copia un archivo o carpeta.
+    \item \texttt{clear}: limpia la consola.
+    \item \texttt{history}: muestra el historial de comandos.
+    \item \texttt{sudo apt-get clean}: elimina archivos temporales.
+    \item \texttt{sudo apt-get autoremove}: elimina paquetes innecesarios.
+\end{itemize}
+
+\section{Variables de entorno y PATH}
+\begin{itemize}
+    \item \texttt{export PALABRA=ls}: asigna \texttt{"ls"} a la variable \texttt{PALABRA} y la hace accesible para otros procesos.
+    \item \texttt{echo \$PALABRA}: muestra el contenido de la variable.
+    \item \texttt{export PATH="\$PATH:/home/usuario/bin"}: agrega \texttt{/home/usuario/bin} al \texttt{PATH}, permitiendo ejecutar scripts desde ahí.
+    \item \texttt{echo \$PATH}: muestra las rutas actuales en \texttt{PATH}.
 \end{itemize}
 
 \section{Búsqueda y filtrado}
@@ -78,6 +82,39 @@ x (ejecución) & 1 & Ejecutar el archivo. \\
     \item \texttt{which <comando>}: muestra la ruta del ejecutable.
 \end{itemize}
 
+\section{Permisos y Archivos en Linux}
+
+\subsection{Permisos y usuarios}
+\begin{itemize}
+    \item \texttt{chmod <permisos> <archivo>}: cambia los permisos.
+    \item Ejemplo: \texttt{chmod 755 archivo} (\texttt{rwxr-xr-x}).
+    \item \texttt{chown <usuario>:<grupo> <archivo>}: cambia el propietario y grupo.
+    \item \texttt{sudo su}: cambia a usuario root.
+\end{itemize}
+
+\subsection{Tipos de archivos (primer carácter en \texttt{ls -l})}
+\begin{itemize}
+    \item \texttt{-}: archivo normal.
+    \item \texttt{d}: directorio.
+    \item \texttt{l}: enlace simbólico.
+\end{itemize}
+
+\subsection{Permisos y sus valores numéricos}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Permiso} & \textbf{Número} & \textbf{Significado} \\
+\hline
+r (lectura) & 4 & Leer el contenido. \\
+w (escritura) & 2 & Modificar el contenido. \\
+x (ejecución) & 1 & Ejecutar el archivo. \\
+- (sin permiso) & 0 & Ningún permiso. \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
 \section{Información del sistema}
 \begin{itemize}
     \item \texttt{uname -a}: muestra información completa del sistema.
@@ -85,6 +122,14 @@ x (ejecución) & 1 & Ejecutar el archivo. \\
     \item \texttt{du -sh <carpeta>}: muestra el tamaño de una carpeta.
     \item \texttt{top / htop}: muestra los procesos activos y uso de recursos.
     \item \texttt{free -h}: muestra el uso de memoria RAM.
+\end{itemize}
+
+\section{Redes y conectividad}
+\begin{itemize}
+    \item \texttt{ping <dominio>}: verifica la conectividad.
+    \item \texttt{ifconfig / ip a}: muestra las interfaces de red.
+    \item \texttt{netstat -tuln}: muestra los puertos abiertos.
+    \item \texttt{curl <URL>}: realiza solicitudes HTTP.
 \end{itemize}
 
 \section{Compresión y descompresión}
@@ -97,41 +142,12 @@ x (ejecución) & 1 & Ejecutar el archivo. \\
     \item \texttt{unzip <archivo.zip>}: descomprime un .zip.
 \end{itemize}
 
-\section{Redes y conectividad}
-\begin{itemize}
-    \item \texttt{ping <dominio>}: verifica la conectividad.
-    \item \texttt{ifconfig / ip a}: muestra las interfaces de red.
-    \item \texttt{netstat -tuln}: muestra los puertos abiertos.
-    \item \texttt{curl <URL>}: realiza solicitudes HTTP.
-\end{itemize}
+
 
 \section{Git y ayuda de comandos}
 \begin{itemize}
     \item \texttt{git init}: inicia un proyecto Git.
     \item \texttt{<comando> --help}: muestra el manual breve del comando.
-\end{itemize}
-
-\section{Permisos y usuarios}
-\begin{itemize}
-    \item \texttt{chmod <permisos> <archivo>}: cambia los permisos.
-    \item Ejemplo: \texttt{chmod 755 archivo} (\texttt{rwxr-xr-x}).
-    \item \texttt{chown <usuario>:<grupo> <archivo>}: cambia el propietario y grupo.
-    \item \texttt{sudo su}: cambia a usuario root.
-\end{itemize}
-
-\section{Tipos de archivos (primer carácter en \texttt{ls -l})}
-\begin{itemize}
-    \item \texttt{-}: archivo normal.
-    \item \texttt{d}: directorio.
-    \item \texttt{l}: enlace simbólico.
-\end{itemize}
-
-\section{Administración y limpieza}
-\begin{itemize}
-    \item \texttt{clear}: limpia la consola.
-    \item \texttt{history}: muestra el historial de comandos.
-    \item \texttt{sudo apt-get clean}: elimina archivos temporales.
-    \item \texttt{sudo apt-get autoremove}: elimina paquetes innecesarios.
 \end{itemize}
 
 \section{Combinaciones útiles}
@@ -145,15 +161,6 @@ x (ejecución) & 1 & Ejecutar el archivo. \\
 \begin{itemize}
     \item \texttt{alias ll='ls -la'}: crea un alias para listar todo con detalles.
     \item \texttt{alias cls='clear'}: crea un alias para limpiar la consola.
-    \item Para hacer los alias permanentes, agrégalos a \texttt{\textasciitilde/.bashrc} y ejecuta \texttt{source \textasciitilde/.bashrc}.
-\end{itemize}
-
-\section{Extras útiles}
-\begin{itemize}
-    \item \texttt{whoami}: muestra el nombre del usuario actual.
-    \item \texttt{echo \$SHELL}: muestra la shell en uso.
-    \item \texttt{date}: muestra la fecha y hora actuales.
-    \item \texttt{cal}: muestra el calendario del mes actual.
 \end{itemize}
 
 \end{document}
